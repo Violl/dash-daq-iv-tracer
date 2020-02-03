@@ -1,0 +1,12 @@
+#!c:\users\lab-312\documents\github\dash-daq-iv-tracer\virtual\scripts\python.exe
+# EASY-INSTALL-ENTRY-SCRIPT: 'dash==1.8.0','console_scripts','renderer'
+__requires__ = 'dash==1.8.0'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('dash==1.8.0', 'console_scripts', 'renderer')()
+    )
