@@ -14,16 +14,14 @@ import dash_daq as daq
 from dash_daq_drivers import keithley_instruments
 
 # Instance of a Keithley2400 connected with Prologix GPIB to USB controller
-iv_generator = keithley_instruments.KT2400(
-    mock_mode=False
-)
+iv_generator = keithley_instruments.KT2400(mock_mode=False, instr_port_name="GPIB::24")
 
 
 def is_instrument_port(port_name):
     """test if a string can be a com of gpib port"""
     answer = False
     if isinstance(port_name, str):
-        ports = ['COM', 'com', 'GPIB0::', 'gpib0::']
+        ports = ['COM', 'com', 'GPIB::', 'gpib::']
         for port in ports:
             if port in port_name:
                 answer = not (port == port_name)

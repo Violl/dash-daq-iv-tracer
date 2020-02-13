@@ -14,7 +14,7 @@ import dash_daq as daq
 from dash_daq_drivers import keithley_instruments
 
 # Instance of a Keithley2400
-iv_generator = keithley_instruments.KT2400('COM3', mock_mode=True)
+iv_generator = keithley_instruments.KT2400('GPIB::24', mock_mode=False)
 
 # Define the app
 app = dash.Dash(__name__)

@@ -208,7 +208,8 @@ class KT2400(Instrument):
     def get_voltage_compliance(self):
         """voltage compliance in Volt"""
         if not self.mock_mode:
-            return float(self.ask(':SENS:VOLT:PROT:LEV?'))
+            #return int(self.ask(':SENS:VOLT:PROT:LEV?'))
+            return self.ask(':SENS:VOLT:PROT:LEV?')
         else:
             return 20
 
@@ -218,7 +219,8 @@ class KT2400(Instrument):
     def get_current_compliance(self):
         """current compliance in Ampere"""
         if not self.mock_mode:
-            return float(self.ask(':SENS:CURR:PROT:LEV?'))
+            #return float(self.ask(':SENS:CURR:PROT:LEV?'))
+            return self.ask(':SENS:CURR:PROT:LEV?')
         else:
             return 1
 
@@ -268,7 +270,8 @@ class KT2400(Instrument):
     def enquire_auto_output_off(self):
         """refer to p. 13 -7 of the KT2400 manual"""
         if not self.mock_mode:
-            return bool(int(self.ask(':SOUR:CLE:AUTO?')))
+            #return bool(int(self.ask(':SOUR:CLE:AUTO?')))
+            return bool(self.ask(':SOUR:CLE:AUTO?'))
         else:
             return False
 
